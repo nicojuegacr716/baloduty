@@ -1,72 +1,3 @@
-<?php
-session_start();
-
-// Función para registrar un usuario en el archivo usuarios.txt
-function registrarUsuario($correo, $nombreUsuario, $contrasena) {
-    $archivoUsuarios = 'usuarios.txt';
-    $datosUsuario = $correo . ',' . $nombreUsuario . ',' . password_hash($contrasena, PASSWORD_DEFAULT) . PHP_EOL;
-    file_put_contents($archivoUsuarios, $datosUsuario, FILE_APPEND);
-}
-
-// Función para iniciar sesión
-function iniciarSesion($nombreUsuario, $contrasena) {
-    $archivoUsuarios = 'usuarios.txt';
-    $usuarios = file($archivoUsuarios, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-
-    foreach ($usuarios as $usuario) {
-        list($correo, $usuarioRegistrado, $hashContrasena) = explode(',', $usuario);
-        if ($nombreUsuario === $usuarioRegistrado && password_verify($contrasena, $hashContrasena)) {
-            $_SESSION['usuario'] = $nombreUsuario;
-            $_SESSION['loggedIn'] = true; // Establecer sesión como iniciada
-            $_SESSION['mensajeInicioSesion'] = 'Inicio de sesión exitoso. Ahora haz click a alguna sección o cierra sesión.';
-            header('Location: prueba.php'); // Redirigir a la página principal
-            exit;
-        }
-    }
-
-    return false;
-}
-
-// Procesar el formulario de registro
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['registro'])) {
-    $correo = $_POST['correo'];
-    $nombreUsuario = $_POST['nombre_usuario'];
-    $contrasena = $_POST['contrasena'];
-    $confirmarContrasena = $_POST['confirmar_contrasena'];
-
-    if ($contrasena === $confirmarContrasena) {
-        registrarUsuario($correo, $nombreUsuario, $contrasena);
-        $_SESSION['mensajeRegistro'] = 'Registro exitoso. Ahora puedes iniciar sesión.';
-    } else {
-        $_SESSION['mensajeRegistro'] = 'Las contraseñas no coinciden.';
-    }
-}
-
-// Procesar el formulario de inicio de sesión
-$mensajeInicioSesion = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inicio_sesion'])) {
-    $nombreUsuario = $_POST['nombre_usuario'];
-    $contrasena = $_POST['contrasena'];
-
-    if (iniciarSesion($nombreUsuario, $contrasena)) {
-        // El redireccionamiento ya ocurre dentro de la función iniciarSesion
-    } else {
-        $mensajeInicioSesion = 'Nombre de usuario o contraseña incorrectos.';
-    }
-}
-
-// Verificar si el usuario está logueado
-$usuarioLogueado = isset($_SESSION['loggedIn']);
-
-// Cerrar sesión
-if (isset($_GET['logout'])) {
-    session_destroy();
-    header('Location: prueba.php');
-    exit;
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -132,12 +63,6 @@ if (isset($_GET['logout'])) {
         <button class="btn6" onclick="mostrarSeccion('equipo')">Equipo</button>
         <button class="btn6" onclick="mostrarSeccion('bugs')">Actualizaciones y encuentros de bugs</button>
         <button class="btn6" onclick="mostrarSeccion('betas')">Betas y prototipos y alfas</button>
-        <?php if (!$usuarioLogueado): ?>
-            <button class="btn6" onclick="mostrarSeccion('registro')">Registrar</button>
-            <button class="btn6" onclick="mostrarSeccion('inicio_sesion')">Iniciar Sesión</button>
-        <?php else: ?>
-            <a href="?logout" class="btn6">Cerrar sesión</a>
-        <?php endif; ?>
     </div>
 
     <!-- Contenido específico de la página -->
@@ -177,35 +102,5 @@ if (isset($_GET['logout'])) {
         <h2>Betas, Prototipos y Alfas</h2>
         <p>No existe ningún prototipo.</p>
     </div>
-
-    <?php if (!$usuarioLogueado): ?>
-        <!-- Sección de Registro -->
-        <div id="registro" class="seccion">
-            <h2>Registro</h2>
-            <?php if (!empty($_SESSION['mensajeRegistro'])): ?>
-                <p><?php echo $_SESSION['mensajeRegistro']; unset($_SESSION['mensajeRegistro']); ?></p>
-            <?php endif; ?>
-            <form method="POST" action="">
-                <input type="email" name="correo" placeholder="Correo" required><br>
-                <input type="text" name="nombre_usuario" placeholder="Nombre de Usuario" required><br>
-                <input type="password" name="contrasena" placeholder="Contraseña" required><br>
-                <input type="password" name="confirmar_contrasena" placeholder="Confirmar Contraseña" required><br>
-                <button type="submit" name="registro" class="btn6">Registrarse</button>
-            </form>
-        </div>
-
-        <!-- Sección de Inicio de Sesión -->
-        <div id="inicio_sesion" class="seccion">
-            <h2>Iniciar Sesión</h2>
-            <?php if (!empty($mensajeInicioSesion)): ?>
-                <p><?php echo $mensajeInicioSesion; ?></p>
-            <?php endif; ?>
-            <form method="POST" action="">
-                <input type="text" name="nombre_usuario" placeholder="Nombre de Usuario" required><br>
-                <input type="password" name="contrasena" placeholder="Contraseña" required><br>
-                <button type="submit" name="inicio_sesion" class="btn6">Iniciar Sesión</button>
-            </form>
-        </div>
-    <?php endif; ?>
 </body>
 </html>
