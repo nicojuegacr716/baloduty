@@ -1,0 +1,144 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: url(images/fondo.png) center;
+    background-position:center;
+    font-family: sans-serif;
+}
+
+.btn {
+
+     background-color: blue;
+     display: inline-block;
+     padding: 5px 15px;
+     color: white;
+     text-decoration: none;
+     margin-top: 5px;
+
+
+}
+
+.btn2 {
+
+    background-color: blue;
+    display: inline-block;
+    padding: 5px 15px;
+    color: white;
+    text-decoration: none;
+    margin-top: 5px;
+
+
+}
+
+.btn:hover {
+    background-color: black;     
+
+}
+
+.btn2:hover {
+    background-color: black;     
+
+}
+
+p {
+
+      color: white;
+
+
+}
+
+h2 {
+
+
+         color: white;
+
+
+
+
+
+}
+
+
+.btn3 {
+
+    background-color: blue;
+    display: inline-block;
+    padding: 5px 15px;
+    color: white;
+    text-decoration: none;
+    margin-top: 5px;
+
+
+}
+
+.btn3:hover {
+    background-color: black;
+
+}
+
+.btn4 {
+
+    background-color: blue;
+    display: inline-block;
+    padding: 5px 15px;
+    color: white;
+    text-decoration: none;
+    margin-top: 5px;
+
+
+}
+
+.btn4:hover {
+    background-color: black;
+
+
+}
+
+.contenedor {
+    width: 100%;
+    margin:0 auto;
+    overflow: hidden;  
+
+
+}
+
+
+.btn4:hover {
+    background-color: black;
+
+
+}
+
+.btn5 {
+
+    background-color: blue;
+    display: inline-block;
+    padding: 5px 15px;
+    color: white;
+    text-decoration: none;
+    margin-top: 5px;
+
+
+}
+
+.btn5:hover {
+      background-color: black;
+
+}
+
+.btn6 {
+    background-color: blue;
+    display: inline-block;
+    padding: 5px 15px;
+    color: white;
+    text-decoration: none;
+    margin-top: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 20px;
+}
+
+.btn6:hover {
+    background-color: black; /* Cambiar el color cuando se pasa el cursor por encima */
+}
