@@ -7,6 +7,20 @@
     <link rel="icon" href="icon/icon.png">
     <link rel="stylesheet" href="style.css"> <!-- Referencia al archivo style.css -->
 
+        <style>
+        .seccion {
+            display: none; /* Oculta todas las secciones */
+        }
+        .no-js-message {
+            display: block; /* Muestra el mensaje de advertencia */
+            text-align: center;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            margin: 20px;
+        }
+    </style>
+
     <!-- JavaScript para manejar la visibilidad de las secciones y descargar archivos -->
     <script>
         function mostrarSeccion(seccionId) {
@@ -59,6 +73,12 @@
     </script>
 </head>
 <body>
+        <noscript>
+        <div class="no-js-message">
+            <h1>Tu navegador no es compatible con JavaScript, por lo tanto no puedes ver la página.</h1>
+        </div>
+    </noscript>
+    
     <div class="contenedor">
         <!-- Botones de Navegación -->
         <button class="btn6" onclick="mostrarSeccion('inicio')">Inicio</button>
