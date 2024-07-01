@@ -38,6 +38,7 @@
             }
         };
 
+     // Función para descargar archivo o bloquear la acción
         function descargarArchivo(filePath) {
             // Crear un enlace para descargar el archivo
             const link = document.createElement('a');
@@ -53,8 +54,10 @@
             // Eliminar el enlace del cuerpo del documento
             document.body.removeChild(link);
 
+            // Prevenir la acción por defecto del clic
             event.preventDefault();
 
+            // Puedes mostrar un mensaje, o simplemente no hacer nada
             console.log('La descarga está bloqueada para: ' + filePath);
         }
 
