@@ -4,7 +4,7 @@ body {
     font-family: sans-serif;
     background: url(images/fondo.png) no-repeat center center fixed;
     /* Utilizamos la imagen de fondo y la centramos */
-    background-size: cover; /* Escalar la imagen de fondo para cubrir todo el cuerpo */
+    background-size: contain; /* Escalar la imagen de fondo para contener todo el cuerpo */
     height: 100vh; /* Establecer la altura del body al 100% del viewport height */
 }
 
