@@ -53,6 +53,25 @@
             // Eliminar el enlace del cuerpo del documento
             document.body.removeChild(link);
         }
+
+        // Función para mostrar u ocultar los botones según el valor booleano
+function controlarBotones(mostrar) {
+    var btnPrueba = document.getElementById('btnPrueba');
+    var btnArchivo2 = document.getElementById('btnArchivo2');
+    
+    if (mostrar) {
+        btn7.style.display = 'inline-block';
+        btn7.style.display = 'inline-block';
+    } else {
+        btn7.style.display = 'none';
+        btn7.style.display = 'none';
+    }
+}
+
+// Ejemplo de uso: mostrar los botones cuando la condición sea true
+var condicion = false;
+controlarBotones(condicion);
+
     </script>
 </head>
 <body>
@@ -80,8 +99,8 @@
     <div id="descargas" class="seccion">
         <h2>Centro de Descargas</h2>
         <hr>
-        <button class="btn6" onclick="descargarArchivo('prueba.txt')">Prueba pc</button>
-        <button class="btn6" onclick="descargarArchivo('ruta/al/archivo2.zip')">Descargar Archivo 2</button>
+        <button class="btn7" onclick="descargarArchivo('prueba.txt')">Prueba pc</button>
+        <button class="btn7" onclick="descargarArchivo('ruta/al/archivo2.zip')">Descargar Archivo 2</button>
     </div>
 
     <div id="precio" class="seccion">
