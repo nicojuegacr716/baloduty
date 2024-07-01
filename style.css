@@ -36,3 +36,10 @@ p, h2 {
     margin: 0 auto;
     overflow: hidden;
 }
+
+hr {
+    border: 1px solid #ffffff; /* Establece el borde blanco */
+    background-color: #ffffff; /* Fondo blanco */
+    height: 1px; /* Altura del hr */
+}
+
