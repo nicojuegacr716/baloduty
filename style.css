@@ -4,7 +4,8 @@ body {
     font-family: sans-serif;
     background: url(images/fondo.png) no-repeat center center fixed;
     /* Utilizamos la imagen de fondo y la centramos */
-    background-size: contain; /* Escalar la imagen de fondo para contener todo el cuerpo */
+    background-size: auto 100%;
+    /* Ajustamos el tamaño de la imagen para que se escale automáticamente según la altura del cuerpo */
     height: 100vh; /* Establecer la altura del body al 100% del viewport height */
 }
 
@@ -18,7 +19,7 @@ body {
     border: none;
     cursor: pointer;
     font-size: 14px;
-    border-radius: 4px;
+    border-radius: 30px;
 }
 
 .btn:hover, .btn2:hover, .btn3:hover, .btn4:hover, .btn5:hover, .btn6:hover {
