@@ -2,8 +2,10 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background: linear-gradient(to bottom, #add8e6, #191970);
+    background: linear-gradient(to bottom, #add8e6 50%, #191970 100%);
     /* Utilizamos linear-gradient para aplicar un degradado de azul claro a azul oscuro */
+    /* El 50% indica que el degradado comienza en la mitad de la altura del body */
+    /* El 100% indica que el degradado llega hasta el final del body */
 }
 
 .btn, .btn2, .btn3, .btn4, .btn5, .btn6 {
