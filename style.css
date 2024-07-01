@@ -36,3 +36,9 @@ p, h2 {
     margin: 0 auto;
     overflow: hidden;
 }
+hr {
+    border: none;
+    height: 1px;
+    background-color: white;
+}
+
