@@ -9,7 +9,8 @@ body {
     height: 100vh; /* Establecer la altura del body al 100% del viewport height */
 }
 
-.btn, .btn2, .btn3, .btn4, .btn5, .btn6 {
+
+.btn, .btn2, .btn3, .btn4, .btn5, .btn6, .btn7 {
     background-color: blue;
     display: inline-block;
     padding: 5px 15px;
@@ -22,7 +23,7 @@ body {
     border-radius: 30px;
 }
 
-.btn:hover, .btn2:hover, .btn3:hover, .btn4:hover, .btn5:hover, .btn6:hover {
+.btn:hover, .btn2:hover, .btn3:hover, .btn4:hover, .btn5:hover, .btn6:hover, .btn7:hover {
     background-color: black;
 }
 
@@ -34,4 +35,10 @@ p, h2 {
     width: 100%;
     margin: 0 auto;
     overflow: hidden;
+}
+
+hr {
+    border: 1px solid #ffffff; /* Establece el borde blanco */
+    background-color: #ffffff; /* Fondo blanco */
+    height: 0.1px; /* Altura del hr */
 }

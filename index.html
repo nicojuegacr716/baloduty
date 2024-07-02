@@ -7,6 +7,7 @@
     <link rel="icon" href="icon/icon.png">
     <link rel="stylesheet" href="style.css"> <!-- Referencia al archivo style.css -->
 
+
     <!-- JavaScript para manejar la visibilidad de las secciones y descargar archivos -->
     <script>
         function mostrarSeccion(seccionId) {
@@ -38,6 +39,7 @@
             }
         };
 
+     // Función para descargar archivo o bloquear la acción
         function descargarArchivo(filePath) {
             // Crear un enlace para descargar el archivo
             const link = document.createElement('a');
@@ -52,10 +54,26 @@
 
             // Eliminar el enlace del cuerpo del documento
             document.body.removeChild(link);
+
         }
+
     </script>
 </head>
 <body>
+    <noscript>
+        <style>
+            .seccion {
+                display: none;
+            }
+            #NoJavaScript {
+                display: block;
+            }
+        </style>
+        <div id="NoJavaScript" class="seccion">
+            <h1>Tu navegador no es compatible con JavaScript, por lo tanto no puedes ver la página.</h1>
+        </div>
+    </noscript>
+    
     <div class="contenedor">
         <!-- Botones de Navegación -->
         <button class="btn6" onclick="mostrarSeccion('inicio')">Inicio</button>
@@ -65,6 +83,9 @@
         <button class="btn6" onclick="mostrarSeccion('bugs')">Actualizaciones y encuentros de bugs</button>
         <button class="btn6" onclick="mostrarSeccion('betas')">Betas y prototipos y alfas</button>
     </div>
+    <noscript>
+        <meta http-equiv="refresh" content="0;URL=#NoJavaScript">
+    </noscript>
 
     <!-- Contenido específico de la página -->
     <div id="inicio" class="seccion visible">
@@ -79,14 +100,15 @@
 
     <div id="descargas" class="seccion">
         <h2>Centro de Descargas</h2>
-        <button class="btn6" onclick="descargarArchivo('prueba.txt')">Prueba pc</button>
-        <button class="btn6" onclick="descargarArchivo('ruta/al/archivo2.zip')">Descargar Archivo 2</button>
+        <hr>
+        <button class="btn7" onclick="descargarArchivo1('prueba.txt')">Prueba (bloqueado)</button>
+        <button class="btn7" onclick="descargarArchivo1('ruta/al/archivo2.zip')">Prueba (bloqueado)</button>
     </div>
 
     <div id="precio" class="seccion">
         <h2>Precio</h2>
         <hr>
-        <p>Not</p>
+        <p>Not, pero va a tener microtransacciones (creo)</p>
     </div>
 
     <div id="equipo" class="seccion">
@@ -107,5 +129,6 @@
         <hr>
         <p>No existe ningún prototipo.</p>
     </div>
+
 </body>
 </html>
